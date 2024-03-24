@@ -1,0 +1,1 @@
+using Commands;using HECSFramework.Core;using System;namespace Components{	[Serializable][Documentation(Doc.Strategy, "this component holds strategy for execute strategy by listen command ShowUICommand ")]	public sealed class GlobalShowUICommandToStrategyComponent : StrategyByGlobalCommandComponent<ShowUICommand> 	{	}}
