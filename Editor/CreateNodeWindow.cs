@@ -21,7 +21,7 @@ namespace HECSFramework.Unity
 
         public List<CreateFieldInfo> createFieldInfos = new List<CreateFieldInfo>();
 
-        [MenuItem("HECS Options/Helpers/Create Strategies Node")]
+        [MenuItem("HECS Options/Helpers/Strategies/Create Strategies Node")]
         public static void ShowCreateNodeWindow()
         {
             GetWindow<CreateNodeWindow>();
