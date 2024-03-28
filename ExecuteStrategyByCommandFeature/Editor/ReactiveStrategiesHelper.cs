@@ -73,8 +73,8 @@ public class ReactiveStrategiesHelper : OdinEditorWindow
         tree.Add(new TabSimpleSyntax(1, $"[Serializable][Documentation(Doc.Strategy, {CParse.Quote}this system execute strategy by listen command {CommandType.Name} {CParse.Quote})]"));
         tree.Add(new TabSimpleSyntax(1, $"public sealed class Local{CommandType.Name}ToStrategySystem : BaseSystem, IReactCommand<{CommandType.Name}> "));
         tree.Add(new LeftScopeSyntax(1));
-        tree.Add(new RightScopeSyntax(1));
         tree.Add(Body("Local"));
+        tree.Add(new RightScopeSyntax(1));
         tree.Add(new RightScopeSyntax());
         return tree;
     }

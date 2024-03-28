@@ -21,7 +21,7 @@ public class GenerateGetNodeForComponentWindow : OdinEditorWindow
 
     private const string StrategyNodes = "/StrategyNodes/";
 
-    [MenuItem("HECS Options/Helpers/Generate GetNode For Component")]
+    [MenuItem("HECS Options/Helpers/Strategies/Generate GetNode For Component")]
     public static void GetGenerateValueNodeFromComponentWindow()
     {
         GetWindow<GenerateGetNodeForComponentWindow>();
@@ -74,20 +74,24 @@ public class GenerateGetNodeForComponentWindow : OdinEditorWindow
         tree.Add(new NameSpaceSyntax("Strategies"));
         tree.Add(new LeftScopeSyntax());
 
-        tree.Add(new TabSimpleSyntax(1, $"public sealed class {Component.Name}Get{Field} : GenericNode<{field.FieldType.Name}>"));
+        tree.Add(new TabSimpleSyntax(1, $"public sealed class {Component.Name}Get{Field} : GenericNode<{GetFieldType(field)}>"));
         tree.Add(new LeftScopeSyntax(1));
         tree.Add(new TabSimpleSyntax(2, $"public override string TitleOfNode {CParse.LeftScope} get; {CParse.RightScope} = {CParse.Quote}{Component.Name}Get{Field}{CParse.Quote};"));
 
-        tree.Add(new TabSimpleSyntax(2, $"[Connection(ConnectionPointType.Out, {CParse.Quote}<{field.FieldType.Name}> Out{CParse.Quote})]"));
+        tree.Add(new TabSimpleSyntax(2, $"[Connection(ConnectionPointType.In, {CParse.Quote}AdditionalEntity{CParse.Quote})]"));
+        tree.Add(new TabSimpleSyntax(2, "public GenericNode<Entity> AdditionalEntity;"));
+
+        tree.Add(new TabSimpleSyntax(2, $"[Connection(ConnectionPointType.Out, {CParse.Quote}<{GetFieldType(field)}> Out{CParse.Quote})]"));
         tree.Add(new TabSimpleSyntax(2, "public BaseDecisionNode Out;"));
 
         tree.Add(new TabSimpleSyntax(2, "public override void Execute(Entity entity)"));
         tree.Add(new LeftScopeSyntax(2));
         tree.Add(new RightScopeSyntax(2));
 
-        tree.Add(new TabSimpleSyntax(2, $"public override {field.FieldType.Name} Value(Entity entity)"));
+        tree.Add(new TabSimpleSyntax(2, $"public override {GetFieldType(field)} Value(Entity entity)"));
         tree.Add(new LeftScopeSyntax(2));
-        tree.Add(new TabSimpleSyntax(3, $"return entity.GetComponent<{Component.Name}>().{Field}; "));
+        tree.Add(new TabSimpleSyntax(3, $"var needed = this.AdditionalEntity != null ? AdditionalEntity.Value(entity) : entity;"));
+        tree.Add(new TabSimpleSyntax(3, $"return needed.GetComponent<{Component.Name}>().{Field}; "));
         tree.Add(new RightScopeSyntax(2));
 
         tree.Add(new RightScopeSyntax(1));
@@ -97,6 +101,24 @@ public class GenerateGetNodeForComponentWindow : OdinEditorWindow
         InstallHECS.SaveToFile(tree.ToString(), InstallHECS.ScriptPath + InstallHECS.HECSGenerated + StrategyNodes + $"{Component.Name}Get{Field}.cs");
         AssetDatabase.SaveAssets();
         Close();
+    }
+
+    private string GetFieldType(FieldInfo fieldInfo)
+    {
+        if (fieldInfo.FieldType.IsGenericType)
+        {
+            if (fieldInfo.FieldType.GetGenericTypeDefinition() == typeof(List<>))
+            {
+                return $"List<{fieldInfo.FieldType.GetGenericArguments()[0].Name}>";
+            }
+
+            if (fieldInfo.FieldType.GetGenericTypeDefinition() == typeof(HECSList<>))
+            {
+                return $"HECSList<{fieldInfo.FieldType.GetGenericArguments()[0].Name}>";
+            }
+        }
+
+        return fieldInfo.FieldType.Name;
     }
 }
 
