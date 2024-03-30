@@ -45,7 +45,7 @@ public class GenerateConvertNodes : OdinEditorWindow
                 var method = m;
                 var returnValue = StrategyGraphView.FromDotNetTypeToCSharpType(m.ReturnType.Name.ToString());
                 var titleCaseReturnValue = returnValue.ToTitleCase();
-                var className = $"{node.NodeType.Name}{m.Name}_To_{titleCaseReturnValue}";
+                var className = $"{node.NodeType.Name}{m.Name}";
                 var data = GetConvertNode(node.NodeType, className, method.Name, returnValue, m.ReturnType.Namespace);
                 File.WriteAllText(path + $"{className}.cs", data.ToString(), Encoding.UTF8);
             }
