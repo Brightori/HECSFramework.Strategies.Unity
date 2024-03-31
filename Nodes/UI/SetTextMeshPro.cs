@@ -21,3 +21,8 @@ namespace Strategies
         }
     }
 }
+
+namespace Strategies
+{
+}
+

@@ -1,0 +1,1 @@
+﻿using HECSFramework.Core.Generator;using Strategies;public  class ExposeFieldNode : BaseNodeConstruction{	public override string Name { get; }  = "ExposeFieldNode";	[ExposeField]	public int Step;	public override ISyntax GetSyntax()	{		return new TabSimpleSyntax(Step, $"[ExposeField]");	}}

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace Strategies
 {
     [Documentation(Doc.Strategy, "We get button from ui access element")]
-    public class GetImage : GenericNode<Image>
+    public sealed class GetImage : GenericNode<Image>
     {
         public override string TitleOfNode { get; } = "GetImage";
 

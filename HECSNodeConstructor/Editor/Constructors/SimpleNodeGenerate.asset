@@ -1,0 +1,512 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9186281564233619372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 4149054165853285728}
+  coords: {x: -1799, y: 322}
+  ConnectionContexts: []
+  Step: 1
+  Body: '}'
+--- !u!114 &-8989501500853744435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 4149054165853285728}
+  coords: {x: -1854, y: 87}
+  ConnectionContexts: []
+  Step: 2
+  Body: return new TabSimpleSyntax(Step, $"[ExposeField]");
+--- !u!114 &-8888371206250237940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4122791958970040585}
+  coords: {x: 171, y: 150}
+  ConnectionContexts: []
+  Join: {fileID: 6564893843487710756}
+  Parent: {fileID: 1515841363657708558}
+--- !u!114 &-8521317882526585517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 7986541341927677708}
+  coords: {x: -932, y: 428}
+  ConnectionContexts: []
+  Step: 1
+  Body: public override string Name { get; }  = "ExposeFieldNode";
+--- !u!114 &-8146167055250920724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 9220070666450252198}
+  coords: {x: -1546, y: 873}
+  ConnectionContexts: []
+  Step: 1
+  Body: '[ExposeField]'
+--- !u!114 &-7366622426387545385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4858762230514060059}
+  coords: {x: -958, y: 9}
+  ConnectionContexts: []
+  Step: 1
+  Body: '{'
+--- !u!114 &-5489616360387319587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e8c0aa811dc3846bacbb44df70d3dd, type: 3}
+  m_Name: SimpleStringNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 2563546420596338717}
+  coords: {x: -1712, y: 1085}
+  ConnectionContexts: []
+  Text: 
+--- !u!114 &-4858762230514060059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -1366278935887154739}
+  coords: {x: -593, y: 160}
+  ConnectionContexts: []
+  Join: {fileID: -7366622426387545385}
+  Parent: {fileID: 4149054165853285728}
+--- !u!114 &-4549004296862781196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 3399083374245072333}
+  coords: {x: -988, y: 962}
+  ConnectionContexts: []
+  Join: {fileID: 5751226727061436831}
+  Parent: {fileID: 9220070666450252198}
+--- !u!114 &-4396920944366950408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e8c0aa811dc3846bacbb44df70d3dd, type: 3}
+  m_Name: SimpleStringNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 3393785432003838897}
+  coords: {x: 337, y: 10}
+  ConnectionContexts: []
+  Text: ExposeFieldNode.cs
+--- !u!114 &-4122791958970040585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462417c1be475734791ed5d4008c1b8e, type: 3}
+  m_Name: GenerateClass
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 3393785432003838897}
+  coords: {x: 370, y: 379}
+  ConnectionContexts: []
+  Usings: {fileID: -8888371206250237940}
+  Body: {fileID: -1366278935887154739}
+  Fields: {fileID: 7986541341927677708}
+  ClassName: {fileID: 7938487598529394528}
+  Parent: {fileID: -1395038499547580181}
+  Step: 0
+  ClassModifiers: 
+--- !u!114 &-1395038499547580181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e8c0aa811dc3846bacbb44df70d3dd, type: 3}
+  m_Name: SimpleStringNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4122791958970040585}
+  coords: {x: 139, y: 910}
+  ConnectionContexts: []
+  Text: BaseNodeConstruction
+--- !u!114 &-1366278935887154739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4122791958970040585}
+  coords: {x: -207, y: 160}
+  ConnectionContexts: []
+  Join: {fileID: 8655660650624038240}
+  Parent: {fileID: -4858762230514060059}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7978a4738de53fc4480ff8d784c07584, type: 3}
+  m_Name: SimpleNodeGenerate
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Path: D:/Develop/AnimalWar/Assets/Scripts//HECSGenerated//ConstructedNodes/Editor/
+  ConstructorNodes:
+  - {fileID: 3393785432003838897}
+  - {fileID: -4396920944366950408}
+  - {fileID: -4122791958970040585}
+  - {fileID: 7938487598529394528}
+  - {fileID: -1395038499547580181}
+  - {fileID: -1366278935887154739}
+  - {fileID: 8655660650624038240}
+  - {fileID: -4858762230514060059}
+  - {fileID: -7366622426387545385}
+  - {fileID: 4149054165853285728}
+  - {fileID: -8989501500853744435}
+  - {fileID: 2563546420596338717}
+  - {fileID: 4226150445246123123}
+  - {fileID: -5489616360387319587}
+  - {fileID: 6564893843487710756}
+  - {fileID: -9186281564233619372}
+  - {fileID: 9220070666450252198}
+  - {fileID: -8146167055250920724}
+  - {fileID: -8888371206250237940}
+  - {fileID: 1515841363657708558}
+  - {fileID: 7986541341927677708}
+  - {fileID: -8521317882526585517}
+  - {fileID: 9023748400857271332}
+  - {fileID: 3399083374245072333}
+  - {fileID: -4549004296862781196}
+  - {fileID: 5751226727061436831}
+  - {fileID: 2554639236518190068}
+--- !u!114 &1515841363657708558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -8888371206250237940}
+  coords: {x: -184, y: -49}
+  ConnectionContexts: []
+  Step: 0
+  Body: using Strategies;
+--- !u!114 &2554639236518190068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e8c0aa811dc3846bacbb44df70d3dd, type: 3}
+  m_Name: SimpleStringNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 0}
+  coords: {x: -1331, y: 503}
+  ConnectionContexts: []
+  Text: 
+--- !u!114 &2563546420596338717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 9220070666450252198}
+  coords: {x: -1462, y: 1056}
+  ConnectionContexts: []
+  Join: {fileID: 4226150445246123123}
+  Parent: {fileID: -5489616360387319587}
+--- !u!114 &3393785432003838897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1311f3f26165877498be548788baa948, type: 3}
+  m_Name: GatherNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 0}
+  coords: {x: 596, y: 254}
+  ConnectionContexts: []
+  FileName: {fileID: -4396920944366950408}
+  Chain: {fileID: -4122791958970040585}
+--- !u!114 &3399083374245072333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 7986541341927677708}
+  coords: {x: -819, y: 837}
+  ConnectionContexts: []
+  Join: {fileID: 9023748400857271332}
+  Parent: {fileID: -4549004296862781196}
+--- !u!114 &4149054165853285728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4858762230514060059}
+  coords: {x: -1095, y: 223}
+  ConnectionContexts: []
+  Join: {fileID: -8989501500853744435}
+  Parent: {fileID: -9186281564233619372}
+--- !u!114 &4226150445246123123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 2563546420596338717}
+  coords: {x: -1851, y: 860}
+  ConnectionContexts: []
+  Step: 1
+  Body: public int Step;
+--- !u!114 &5751226727061436831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d685fb6c01dd4c469b1a4dccf1f3145, type: 3}
+  m_Name: FieldConstructorNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4549004296862781196}
+  coords: {x: -1502, y: 673}
+  ConnectionContexts: []
+  FieldName: 
+  Type: BaseNodeConstruction
+  Step: 0
+--- !u!114 &6564893843487710756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -8888371206250237940}
+  coords: {x: -278, y: -311}
+  ConnectionContexts: []
+  Step: 0
+  Body: using HECSFramework.Core.Generator;
+--- !u!114 &7938487598529394528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e8c0aa811dc3846bacbb44df70d3dd, type: 3}
+  m_Name: SimpleStringNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4122791958970040585}
+  coords: {x: -75, y: 751}
+  ConnectionContexts: []
+  Text: ExposeFieldNode
+--- !u!114 &7986541341927677708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4122791958970040585}
+  coords: {x: -456, y: 659}
+  ConnectionContexts: []
+  Join: {fileID: -8521317882526585517}
+  Parent: {fileID: 3399083374245072333}
+--- !u!114 &8655660650624038240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdebd13e19ea0a43baee123962085e2, type: 3}
+  m_Name: TabSimpleConstructionNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -1366278935887154739}
+  coords: {x: -583, y: -49}
+  ConnectionContexts: []
+  Step: 1
+  Body: public override ISyntax GetSyntax()
+--- !u!114 &9023748400857271332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4f43eff9ff7974b88c9eef0165d6de, type: 3}
+  m_Name: ConnectionAttributeNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: 3399083374245072333}
+  coords: {x: -1016, y: 599}
+  ConnectionContexts: []
+  FieldName: {fileID: 0}
+  Step: 1
+--- !u!114 &9220070666450252198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25470277ca6d88648a5af1e32c280d14, type: 3}
+  m_Name: JoinNode
+  m_EditorClassIdentifier: 
+  NextNode: {fileID: -4549004296862781196}
+  coords: {x: -1181, y: 1002}
+  ConnectionContexts: []
+  Join: {fileID: -8146167055250920724}
+  Parent: {fileID: 2563546420596338717}
