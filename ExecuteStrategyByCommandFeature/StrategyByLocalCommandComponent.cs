@@ -14,6 +14,9 @@ namespace Components
 
         public override void Init()
         {
+            if (strategy == null)
+                Debug.LogError($"{Owner.ContainerID} doesnt have strategy");
+
             strategy.Init();
         }
     }
