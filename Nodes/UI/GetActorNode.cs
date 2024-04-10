@@ -1,0 +1,4 @@
+﻿using Components;
+using HECSFramework.Core;using HECSFramework.Unity;
+
+namespace Strategies{	[Documentation(Doc.Strategy, "get actor from ui acceess component")]	public class GetActorNode : GenericNode<Actor>	{		[Connection(ConnectionPointType.In, "<UIAccess> AdditionalUIAcccess")]		public GenericNode<UIAccessMonoComponent> AdditionalUIAcccess;		[Connection(ConnectionPointType.Out, "<Actor> Out")]		public BaseDecisionNode Out;		public override string TitleOfNode { get; } = "GetActorNode";		[ExposeField]		public UIAccessIdentifier UIAccessIdentifier;		public override void Execute(Entity entity)		{		}		public override Actor Value(Entity entity)		{			if (AdditionalUIAcccess != null) 				return AdditionalUIAcccess.Value(entity).GetActor(UIAccessIdentifier);			return entity.GetComponent<UIAccessProviderComponent>().Get.GetActor(UIAccessIdentifier);		}	}}

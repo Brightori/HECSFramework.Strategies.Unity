@@ -12,6 +12,9 @@ namespace Strategies
         [Connection(ConnectionPointType.Out, " <Button> Out")]
         public BaseDecisionNode Out;
 
+        [Connection(ConnectionPointType.In, " <UIAccessMonoComponent> In")]
+        public GenericNode<UIAccessMonoComponent> AdditionalProvider;
+
         [ExposeField]
         public UIAccessIdentifier AccessIdentifier;
 
@@ -21,6 +24,9 @@ namespace Strategies
 
         public override Button Value(Entity entity)
         {
+            if (AdditionalProvider != null)
+                return AdditionalProvider.Value(entity).GetButton(AccessIdentifier);
+
             return entity.GetComponent<UIAccessProviderComponent>().Get.GetButton(AccessIdentifier);
         }
     }

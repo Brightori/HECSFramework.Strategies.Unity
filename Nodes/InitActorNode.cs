@@ -20,19 +20,16 @@ namespace Strategies
 
             if (needed != null)
             {
-                if (needed != null)
+                if (!needed.IsInited)
                 {
-                    if (!needed.IsInited)
-                    {
-                        if (InitWithContainer)
-                            needed.InitWithContainer();
-                        else
-                            needed.Init();
-                    }
+                    if (InitWithContainer)
+                        needed.InitWithContainer();
+                    else
+                        needed.Init();
                 }
             }
 
-           Next.Execute(entity);
+            Next.Execute(entity);
         }
     }
 }
