@@ -1,19 +1,19 @@
 ﻿using Components;
 using HECSFramework.Core;
-using UnityEngine.UI;
+using UnityEngine;
 
 namespace Strategies
 {
     [NodeTypeAttribite("Meta")]
     [Documentation(Doc.Strategy, "We get button image ui access element")]
-    public sealed class GetImage : GenericNode<Image>, IInitable
+    public sealed class GetRectTransform : GenericNode<RectTransform>, IInitable
     {
         [Connection(ConnectionPointType.In, " <UIAccessMonoComponent> In")]
         public GenericNode<UIAccessMonoComponent> AdditionalProvider;
 
-        public override string TitleOfNode { get; } = "GetImage";
+        public override string TitleOfNode { get; } = "GetRectTransform";
 
-        [Connection(ConnectionPointType.Out, " <Image> Out")]
+        [Connection(ConnectionPointType.Out, " <RectTransform> Out")]
         public BaseDecisionNode Out;
 
         [MetaNode]
@@ -27,12 +27,12 @@ namespace Strategies
         {
         }
 
-        public override Image Value(Entity entity)
+        public override RectTransform Value(Entity entity)
         {
             if (AdditionalProvider != null)
-                return AdditionalProvider.Value(entity).GetImage(AccessIdentifier);
+                return AdditionalProvider.Value(entity).GetRectTransform(AccessIdentifier);
 
-            return entity.GetOrAddComponent<UIAccessProviderComponent>().Get.GetImage(AccessIdentifier);
+            return entity.GetOrAddComponent<UIAccessProviderComponent>().Get.GetRectTransform(AccessIdentifier);
         }
 
         public void Init()

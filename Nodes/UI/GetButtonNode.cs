@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 namespace Strategies
 {
+    [NodeTypeAttribite("Meta")]
     [Documentation(Doc.Strategy, "We get button from ui access element")]
-    public class GetButtonNode : GenericNode<Button>
+    public class GetButtonNode : GenericNode<Button>, IInitable
     {
         public override string TitleOfNode { get; } = "GetButtonNode";
 
@@ -18,6 +19,10 @@ namespace Strategies
         [ExposeField]
         public UIAccessIdentifier AccessIdentifier;
 
+        [MetaNode]
+        [Connection(ConnectionPointType.Out, "<GameObject> Out")]
+        public GetGameObjectMetaNode GameObject;
+
         public override void Execute(Entity entity)
         {
         }
@@ -28,6 +33,12 @@ namespace Strategies
                 return AdditionalProvider.Value(entity).GetButton(AccessIdentifier);
 
             return entity.GetComponent<UIAccessProviderComponent>().Get.GetButton(AccessIdentifier);
+        }
+
+        public void Init()
+        {
+            if (GameObject != null)
+                GameObject.GetComponentFromNode = Value;
         }
     }
 }
