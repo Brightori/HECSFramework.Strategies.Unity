@@ -20,8 +20,7 @@ public class GenerateSetNodeForComponentWindow : OdinEditorWindow
     public string Field;
 
     private const string StrategyNodes = "/StrategyNodes/";
-
-    [MenuItem("HECS Options/Helpers/Generate SetNode For Component")]
+    [MenuItem("HECS Options/Helpers/Strategies/Generate SetNode For Component")]
     public static void GetGenerateSetNodeForComponentWindow()
     {
         GetWindow<GenerateSetNodeForComponentWindow>();
@@ -43,7 +42,7 @@ public class GenerateSetNodeForComponentWindow : OdinEditorWindow
         if (Component == null)
             return default;
 
-        var fields = Component.GetFields(BindingFlags.Public | BindingFlags.Instance);
+        var fields = Component.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
 
         var list = new List<string>(16);
 
