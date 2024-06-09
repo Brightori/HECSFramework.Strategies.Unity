@@ -46,10 +46,16 @@ public class GenerateGetNodeForComponentWindow : OdinEditorWindow
 
 
         var fields = Component.GetFields(BindingFlags.Public | BindingFlags.Instance);
+        var properties = Component.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
         var list = new List<string>(16);
 
         foreach (var f in fields)
+        {
+            list.Add(f.Name);
+        }
+
+        foreach (var f in properties)
         {
             list.Add(f.Name);
         }
@@ -61,7 +67,7 @@ public class GenerateGetNodeForComponentWindow : OdinEditorWindow
     [HideIf("@string.IsNullOrEmpty(Field)")]
     private void GenerateNode()
     {
-        var field = Component.GetField(Field);
+        var field = Component.GetMember(Field)[0];
 
         var tree = new TreeSyntaxNode();
         var usings = new TreeSyntaxNode();
@@ -69,7 +75,7 @@ public class GenerateGetNodeForComponentWindow : OdinEditorWindow
         tree.Add(usings);
         tree.Add(new UsingSyntax("HECSFramework.Core"));
         tree.Add(new UsingSyntax("Components"));
-        tree.AddUnique(new UsingSyntax(field.FieldType.Namespace));
+        tree.AddUnique(new UsingSyntax(GetNameSpace(field)));
 
         tree.Add(new NameSpaceSyntax("Strategies"));
         tree.Add(new LeftScopeSyntax());
@@ -103,22 +109,57 @@ public class GenerateGetNodeForComponentWindow : OdinEditorWindow
         Close();
     }
 
-    private string GetFieldType(FieldInfo fieldInfo)
+    private string GetNameSpace(MemberInfo member)
     {
-        if (fieldInfo.FieldType.IsGenericType)
+        if (member is FieldInfo field)
+            return field.FieldType.Namespace;
+        else
+            if (member is PropertyInfo property)
+            return property.PropertyType.Namespace;
+
+        return null;
+    }
+
+
+    private string GetFieldType(MemberInfo memberInfo)
+    {
+        if (memberInfo is FieldInfo fieldInfo)
         {
-            if (fieldInfo.FieldType.GetGenericTypeDefinition() == typeof(List<>))
+            if (fieldInfo.FieldType.IsGenericType)
             {
-                return $"List<{fieldInfo.FieldType.GetGenericArguments()[0].Name}>";
+                if (fieldInfo.FieldType.GetGenericTypeDefinition() == typeof(List<>))
+                {
+                    return $"List<{fieldInfo.FieldType.GetGenericArguments()[0].Name}>";
+                }
+
+                if (fieldInfo.FieldType.GetGenericTypeDefinition() == typeof(HECSList<>))
+                {
+                    return $"HECSList<{fieldInfo.FieldType.GetGenericArguments()[0].Name}>";
+                }
             }
 
-            if (fieldInfo.FieldType.GetGenericTypeDefinition() == typeof(HECSList<>))
-            {
-                return $"HECSList<{fieldInfo.FieldType.GetGenericArguments()[0].Name}>";
-            }
+            return fieldInfo.FieldType.Name;
         }
 
-        return fieldInfo.FieldType.Name;
+        if (memberInfo is PropertyInfo propertyInfo)
+        {
+            if (propertyInfo.PropertyType.IsGenericType)
+            {
+                if (propertyInfo.PropertyType.GetGenericTypeDefinition() == typeof(List<>))
+                {
+                    return $"List<{propertyInfo.PropertyType.GetGenericArguments()[0].Name}>";
+                }
+
+                if (propertyInfo.PropertyType.GetGenericTypeDefinition() == typeof(HECSList<>))
+                {
+                    return $"HECSList<{propertyInfo.PropertyType.GetGenericArguments()[0].Name}>";
+                }
+            }
+
+            return propertyInfo.PropertyType.Name;
+        }
+
+        return "";
     }
 }
 
