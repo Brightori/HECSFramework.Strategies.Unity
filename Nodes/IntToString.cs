@@ -2,7 +2,7 @@
 
 namespace Strategies
 {
-    [Documentation(Doc.Strategy, Doc.HECS, "Int t")]
+    [Documentation(Doc.Strategy, Doc.HECS, "IntToString")]
 	public class IntToString : GenericNode<string>
 	{
 		[Connection(ConnectionPointType.In, "<int> In")]
