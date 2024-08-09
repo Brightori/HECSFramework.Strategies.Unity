@@ -20,8 +20,8 @@ namespace Strategies
         [Connection(ConnectionPointType.Out, "<GameObject> Out")]
         public GetGameObjectMetaNode GameObject;
 
-        [ExposeField]
-        public UIAccessIdentifier AccessIdentifier;
+        [Connection(ConnectionPointType.In, " <int> UIAccessID")]
+        public GenericNode<int> GetAccessID;
 
         public override void Execute(Entity entity)
         {
@@ -30,9 +30,9 @@ namespace Strategies
         public override RectTransform Value(Entity entity)
         {
             if (AdditionalProvider != null)
-                return AdditionalProvider.Value(entity).GetRectTransform(AccessIdentifier);
+                return AdditionalProvider.Value(entity).GetRectTransform(GetAccessID.Value(entity));
 
-            return entity.GetOrAddComponent<UIAccessProviderComponent>().Get.GetRectTransform(AccessIdentifier);
+            return entity.GetOrAddComponent<UIAccessProviderComponent>().Get.GetRectTransform(GetAccessID.Value(entity));
         }
 
         public void Init()
