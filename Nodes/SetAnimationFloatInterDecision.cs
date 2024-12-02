@@ -15,16 +15,13 @@ namespace Strategies
         [AnimParameterDropDown]
         public int AnimParameter;
 
-        [ExposeField]
-        public bool Force;
-
         public override string TitleOfNode { get; } = "Set Animation Float";
 
         protected override void Run(Entity entity)
         {
             var animOwner = AnimatorOwner != null ? AnimatorOwner.Value(entity) : entity;
 
-            animOwner.GetComponent<AnimatorStateComponent>().State.SetFloat(AnimParameter, FloatValue.Value(entity), Force);
+            animOwner.GetComponent<AnimatorStateComponent>().State.SetFloat(AnimParameter, FloatValue.Value(entity));
             Next.Execute(entity);
         }
     }
