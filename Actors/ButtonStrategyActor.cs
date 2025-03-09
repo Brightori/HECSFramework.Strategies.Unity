@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public sealed class ButtonStrategyActor : Actor
 {
-    public BaseStrategy strategy;
+    public BaseStrategy InitStrategy;
+    public BaseStrategy OnClickStrategy;
 
     private Button button;
 
@@ -14,9 +15,12 @@ public sealed class ButtonStrategyActor : Actor
     {
         Init();
         Entity.GetOrAddComponent<UIAccessProviderComponent>();
-        strategy.Init();
+        OnClickStrategy.Init();
+        InitStrategy?.Init();
         button = GetComponent<Button>();
-        button.onClick.AddListener(()=> strategy.Execute(Entity));
+        button.onClick.AddListener(()=> OnClickStrategy.Execute(Entity));
+
+        InitStrategy?.Execute(Entity);
     }
 
     protected override void OnDestroy()
