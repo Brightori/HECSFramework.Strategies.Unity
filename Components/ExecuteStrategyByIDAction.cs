@@ -13,7 +13,7 @@ namespace Components
         {
             if (entity.TryGetComponent(out StrategiesToIdentifierComponent strategiesToIdentifierComponent))
             {
-                strategiesToIdentifierComponent.ExecuteStrategy(StrategyIdentifier);
+                strategiesToIdentifierComponent.ExecuteStrategy(StrategyIdentifier, entity);
             }
             else
                 HECSDebug.LogError($"we dont have need component {nameof(StrategiesToIdentifierComponent)} on {entity.ID}");
