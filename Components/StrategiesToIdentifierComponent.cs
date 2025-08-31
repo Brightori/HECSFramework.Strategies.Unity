@@ -9,6 +9,14 @@ namespace Components
     {
         public StrategyToIdentifier[] StrategiesToIdentifiers;
 
+        public override void Init()
+        {
+            foreach (var s in StrategiesToIdentifiers) 
+            {
+                s.Strategy.Init();
+            }
+        }
+
         public void ExecuteStrategy(int id, Entity entity = null)
         {
             var target = entity != null ? entity : Owner; 
